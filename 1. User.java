@@ -19,4 +19,25 @@ public class User {
 			this.email = email;
 			this.password = password;
 		}
+	public String getName () {
+		return userName;
+	}
+	
+	public String getEmail () {
+		return email;
+	}
+	
+	public String getPassword () { //De prueba
+		return password;
+	}
+	
+	public int id  () {
+		return id;
+	}
+	
+	public String getDescription () {
+		return userName + " " + email + " " + password + " " + id;
+	}
+}
+
 }
