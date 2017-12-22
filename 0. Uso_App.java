@@ -45,7 +45,31 @@ public class Uso_App {
 			System.out.println("fin");
 		}
 		
-		
+	(opcion1 == 1) {
+
+			
+			String emailUser = Users [0].getEmail();
+			
+			String emailEnter = "";
+			
+			String password = Users [0].getPassword();
+			
+			String passEnter = "";
+			
+						
+				while (emailUser.equals(emailEnter)== false && password.equals(passEnter)) {
+				
+					emailEnter = JOptionPane.showInputDialog("Introduce correo");
+				
+					passEnter = JOptionPane.showInputDialog("IntroduceContraseña");
+				
+					System.out.println("Usuario o contraseña incorrecta");
+				}
+				
+				System.out.println("Contaseña correcta. Acceso concedido");a
+			
+			System.out.println("fin");
+		}
 
 	}
 }
