@@ -1,37 +1,57 @@
 
 public class Uso_App {
 
+	
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		System.out.println("Planeador financiero: génesis");
 			
-		User Diana = new User ("Diana Pito", "diapito@gmail.com", "pito"); 
 			
-			System.out.println(Diana.getDescription());
 			
-		Account cuenta1 = new Account ("Gastos mensuales");
+	//User | Create	
+	User Diana = new User ("Diana Pito", "diapito@gmail.com", "pito"); 
 			
-			System.out.println(cuenta1.getDescription());
-			
+	//Account | Create			
+	Account cuenta1 = new Account ("Gastos mensuales");
+	
+		//User - Account | Assign
 		Diana.setAccount(cuenta1);
-			
-		Transaction Tran1 = new Incomes ("Trabajo", 500000);
-		Transaction Tran2 = new Incomes ("Renta", 250000);
-		Transaction Tran3 = new Outcomes ("Arriendo", 250000);
-		Transaction Tran4 = new Outcomes ("Pensión", 250000);
-			
-			System.out.println("Transacciones" + "\n" + "   Ingresos: " + "\n" + 
-			Tran1.getDescription() +  "\n" + Tran2.getDescription() + "\n" + "   "
-			+ "Egresos:"+ "\n" + Tran3.getDescription() + "\n" +  Tran4.getDescription());
-			 
-		cuenta1.setIncomes(Tran1);	
-		cuenta1.setIncomes(Tran2);
-		cuenta1.setOutcomes(Tran3);
-		cuenta1.setOutcomes(Tran4);
+		
+	// Incomes | Create
+		Incomes [] Incomes1 = new Incomes [2];
+		Incomes1 [0] = new Incomes ("Trabajo", 500000);
+		Incomes1 [1 ]= new Incomes ("Renta", 250000);
+		
+		//Account - Incomes | Assign
+		cuenta1.setIncomesObjects(Incomes1);
+	
+	// Outcomes | Create
+		Outcomes [] Outcomes1 = new Outcomes [2];
+		Outcomes1 [0] = new Outcomes ("Arriendo", 250000);
+		Outcomes1 [1] = new Outcomes ("Pensión", 250000);
+		
+		// Account - Outcomes | Assign
+		cuenta1.setOutcomesObjects(Outcomes1);
+		
+	// Operations
+		cuenta1.setIncomesBalance(Incomes1);
+		cuenta1.setOutcomesBalance(Outcomes1);
+		cuenta1.setBalance();
+	
+	//Print
+		System.out.println("Planeador financiero: génesis");
+		
+		System.out.println(Diana.getDescription());
+		
+		System.out.println(cuenta1.getDescription());
+		
+		System.out.println("Transacciones" + "\n" + "   Ingresos: " + "\n" + 
+				Incomes1[0].getDescription() +  "\n" + Incomes1 [1].getDescription() + "\n" + "   "
+				+ "Egresos:"+ "\n" + Outcomes1[0].getDescription() + "\n" +  Incomes1 [1].getDescription());
 		
 			
-			
+	}
+
+}
+
 			
 			
 			
@@ -90,6 +110,5 @@ public class Uso_App {
 		}*/
 	
 
-	}
 
-}
+
