@@ -1,23 +1,24 @@
 
 public class Account {
-  private int accountId;
+
+		private int accountId;
 		private String accountName;
-		private static int idSiguiente;
+		private static int idSiguienteAccount= 1;
 		private int Balance;
 		private int incomesBalance;
 		private int outcomesBalance;
-		private Transaction trans1;
-		private Transaction trans2;
+		private Transaction incomesObjects [];
+		private Transaction outcomesObjects [];
 		
 	public Account (String name) {
-		accountId = idSiguiente;
-		idSiguiente++;
+		accountId = idSiguienteAccount;
+		idSiguienteAccount++;
 		accountName = name;
 		Balance = 0;
 		incomesBalance = 0;
 		outcomesBalance = 0;
-		trans1 = new Incomes ("", 0);
-		trans2 = new Outcomes ("", 0);
+		incomesObjects = new Incomes [0];
+		outcomesObjects = new Outcomes [0];
 	}
 	
 	public String getDescription () {
@@ -25,11 +26,49 @@ public class Account {
 				+ "Balance de Ingresos: " + incomesBalance + ". Balance de "
 				+ "egresos: " + outcomesBalance;
 	}
-	public void setIncomes (Transaction object) {
-		trans1 = object;
+	
+	
+	public void setIncomesObjects (Transaction []object) {
+		incomesObjects = object;
+	}
+		
+	public void setOutcomesObjects (Transaction []object) {
+		outcomesObjects = object;
 	}
 	
-	public void setOutcomes (Transaction object) {
-		trans2 = object;
+	public void setIncomesBalance (Transaction [] object) {
+		for (int i = 0; i < object.length; i++ ) {
+			incomesBalance += object [i].getaAmounTtransaction();
+		}
+	}
+	
+	public void setOutcomesBalance (Transaction [] object) {
+		for (int i = 0; i < object.length; i++ ) {
+			outcomesBalance += object [i].getaAmounTtransaction();
+		}
+	}
+	
+	public void setBalance () {
+		Balance = incomesBalance - outcomesBalance;
+	}
+	
+	public int getIncomesBalance () {
+		return incomesBalance;
+	}
+	
+	public int getOutcomesBalance () {
+		return outcomesBalance;
+	}
+	
+	public Transaction [] getTrans1 (){
+		return incomesObjects;
 	}
 }
+
+/*public void setIncomes (Transaction []object) {
+for (int i = 0; i < object.length; i++ ) {
+	 object [i]= new Incomes("", 0);
+	 trans1 = object;
+}
+
+}*/
